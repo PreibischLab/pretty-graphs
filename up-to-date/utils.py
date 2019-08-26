@@ -29,6 +29,11 @@ def load_i_z(file_path, skiprows_=0):
         z = data[:, -2]
     return I, z
 
+# function to read parameters files
+def load_params(file_path, skiprows_=0):
+    data = np.loadtxt(file_path, delimiter = '\t', skiprows=skiprows_)
+    return data
+
 # create title for the image
 def create_title(path, name_id=-1):
     # get the name of the initial image
@@ -41,3 +46,4 @@ def create_title(path, name_id=-1):
 def fitter_meter(y, y_hat):
     return [mean_absolute_error(y, y_hat), 
             np.sqrt(mean_squared_error(y, y_hat))]
+
